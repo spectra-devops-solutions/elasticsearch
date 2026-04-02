@@ -36,7 +36,9 @@ curl -X PUT "${ES_HOST}/_ilm/policy/mule-deva-logs-policy" \
         "frozen": {
           "min_age": "30d",
           "actions": {
-            "migrate": {}
+            "searchable_snapshot": {
+              "snapshot_repository": "found-snapshots"
+            }
           }
         },
         "delete": {
